@@ -1,20 +1,22 @@
 return {
     {
-        "folke/tokyonight.nvim",
+        "catppuccin/nvim",
+        name = "catppuccin",
         priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            local bg = "#011628"
-            local bg_dark = "#011423"
-            local bg_highlight = "#143652"
-            local bg_search = "#0A64AC"
-            local bg_visual = "#275378"
-            local fg = "#CBE0F0"
-            local fg_dark = "#B4D0E9"
-            local fg_gutter = "#627E97"
-            local border = "#547998"
+            -- Catppuccin custom colors (Optional: these are just example colors)
+            local bg = "#1E1E28"
+            local bg_dark = "#1A1826"
+            local bg_highlight = "#302D41"
+            local bg_search = "#F28FAD"
+            local bg_visual = "#403D52"
+            local fg = "#D9E0EE"
+            local fg_dark = "#C3BAC6"
+            local fg_gutter = "#6E6C7E"
+            local border = "#B4BEFE"
 
-            require("tokyonight").setup({
-                style = "night",
+            require("catppuccin").setup({
+                flavour = "mocha", -- Set theme flavor to mocha
                 on_colors = function(colors)
                     colors.bg = bg
                     colors.bg_dark = bg_dark
@@ -34,7 +36,7 @@ return {
                 end,
             })
             -- load the colorscheme here
-            vim.cmd([[colorscheme tokyonight]])
+            vim.cmd([[colorscheme catppuccin]])
         end,
     },
 }
