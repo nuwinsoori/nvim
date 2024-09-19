@@ -12,6 +12,7 @@ keymap.set("i", "<C-e>", "**<Left>", { desc = "italics insert" })
 keymap.set("v", "<C-e>", 'c*<C-r>"*<Esc>', { desc = "italicise" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "clear search highlights" })
+keymap.set("n", "J", "<nop>", { desc = "Unbind J in visual mode" }) -- removes joining lines in normal mode
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>=", "<C-a>", { desc = "Increment number" }) -- increment

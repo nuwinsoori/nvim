@@ -111,7 +111,16 @@ return {
         -- configure emmet language server
         lspconfig["emmet_ls"].setup({
           capabilities = capabilities,
-          filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
+          filetypes = {
+            "html",
+            "typescriptreact",
+            "javascriptreact",
+            "css",
+            "sass",
+            "scss",
+            "less",
+            "svelte",
+          },
         })
       end,
       ["lua_ls"] = function()
@@ -131,6 +140,23 @@ return {
           },
         })
       end,
+      -- cpp formatting options
+      -- ["clangd"] = function()
+      --     lspconfig["clangd"].setup({
+      --         capabilities = capabilities,
+      --         on_attach = function(client, bufnr)
+      --             -- Set up buffer-specific formatting options
+      --             vim.api.nvim_buf_set_option(bufnr, "shiftwidth", 4)
+      --             vim.api.nvim_buf_set_option(bufnr, "tabstop", 4)
+      --             vim.api.nvim_buf_set_option(bufnr, "expandtab", false) -- Convert tabs to spaces
+      --         end,
+      --         settings = {
+      --             clangd = {
+      --                 fallbackFlags = { "-std=c++17", "-Wall", "-Wextra" },
+      --             },
+      --         },
+      --     })
+      -- end,
     })
   end,
 }
