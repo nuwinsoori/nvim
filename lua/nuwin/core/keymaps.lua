@@ -28,6 +28,16 @@ keymap.set("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- Resize splits with Alt + h/j/k/l
+keymap.set("n", "<M-l>", "<cmd>vertical resize -2<CR>", { desc = "Decrease window width" })
+keymap.set("n", "<M-h>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
+keymap.set("n", "<M-k>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+keymap.set("n", "<M-j>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+
+-- Terminal
+keymap.set("n", "<leader>t", "<cmd>vsplit | terminal<CR>", { desc = "Split vertically and open terminal" }) -- split vertically and open terminal
+keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit terminal mode with jk" })
+
 -- Other
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "clear search highlights" })
 keymap.set("n", "J", "<nop>", { desc = "Unbind J in normal mode" })

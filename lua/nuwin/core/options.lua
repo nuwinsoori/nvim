@@ -1,5 +1,6 @@
 vim.cmd("let g:netrw_liststyle = 3")
 local opt = vim.opt -- for conciseness
+-- local cp = require("catppuccin.palettes").get_palette()
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
@@ -41,3 +42,55 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- -- Define highlight groups using Catppuccin palette colors
+-- vim.api.nvim_set_hl(0, "WinActive", { bg = cp.mantle })
+-- vim.api.nvim_set_hl(0, "WinInactive", { bg = cp.surface0 })
+--
+-- -- Apply the highlights when entering or leaving a window
+-- vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+--   pattern = "*",
+--   callback = function()
+--     vim.wo.winhighlight = "Normal:WinActive"
+--   end,
+-- })
+--
+-- vim.api.nvim_create_autocmd("WinLeave", {
+--   pattern = "*",
+--   callback = function()
+--     vim.wo.winhighlight = "Normal:WinInactive"
+--   end,
+-- })
+--
+
+-- Enable cursorline only in active window
+vim.api.nvim_create_autocmd({ "WinEnter", "BufWinEnter" }, {
+  pattern = "*",
+  callback = function()
+    vim.wo.cursorline = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("WinLeave", {
+  pattern = "*",
+  callback = function()
+    vim.wo.cursorline = false
+  end,
+})
+
+-- auto-close terminal
+vim.api.nvim_create_autocmd("BufLeave", {
+  pattern = "term://*",
+  callback = function(event)
+    local buf = event.buf
+    -- Check if buffer exists and is valid
+    if vim.api.nvim_buf_is_valid(buf) then
+      -- Attempt to get the terminal job ID associated with the buffer
+      local ok, job_id = pcall(vim.api.nvim_buf_get_var, buf, "terminal_job_id")
+      if ok and job_id then
+        -- Stop the terminal job
+        vim.fn.jobstop(job_id)
+      end
+    end
+  end,
+})
