@@ -10,7 +10,6 @@ keymap.set("v", "<C-b>", 'c**<C-r>"**<Esc>', { desc = "make bold" })
 keymap.set("i", "<C-b>", "****<Left><Left>", { desc = "bold insert mode" })
 keymap.set("i", "<C-e>", "**<Left>", { desc = "italics insert" })
 keymap.set("v", "<C-e>", 'c*<C-r>"*<Esc>', { desc = "italicise" })
-keymap.set("n", "<C-a>", "ggVG", { desc = "Select all" })
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>=", "<C-a>", { desc = "Increment number" }) -- increment
@@ -40,11 +39,15 @@ keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit terminal mode with jk" })
 
 -- Other
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "clear search highlights" })
-keymap.set("n", "J", "<nop>", { desc = "Unbind J in normal mode" })
+-- keymap.set("n", "J", "<nop>", { desc = "Unbind J in normal mode" })
 keymap.set("v", "J", "<nop>", { desc = "Unbind J in visual mode" })
 keymap.set("n", "ci}", "f{ci{", { desc = "Change in inner" })
 keymap.set("n", "di}", "f{di{", { desc = "Delete in inner" })
 keymap.set("n", "si}", "f{si{", { desc = "Substitute in inner" })
+
+keymap.set("n", "ci)", "f(ci(", { desc = "Change in inner" })
+keymap.set("n", "di)", "f(di(", { desc = "Delete in inner" })
+keymap.set("n", "si)", "f(si(", { desc = "Substitute in inner" })
 
 -- MacOS
 keymap.set("i", "<A-BS>", "<C-w>", { desc = "Delete last word in insert mode with Option+Delete" })

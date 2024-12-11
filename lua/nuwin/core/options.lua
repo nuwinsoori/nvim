@@ -79,18 +79,3 @@ vim.api.nvim_create_autocmd("WinLeave", {
 })
 
 -- auto-close terminal
-vim.api.nvim_create_autocmd("BufLeave", {
-  pattern = "term://*",
-  callback = function(event)
-    local buf = event.buf
-    -- Check if buffer exists and is valid
-    if vim.api.nvim_buf_is_valid(buf) then
-      -- Attempt to get the terminal job ID associated with the buffer
-      local ok, job_id = pcall(vim.api.nvim_buf_get_var, buf, "terminal_job_id")
-      if ok and job_id then
-        -- Stop the terminal job
-        vim.fn.jobstop(job_id)
-      end
-    end
-  end,
-})
