@@ -34,7 +34,6 @@ keymap.set("n", "<M-k>", "<cmd>resize +2<CR>", { desc = "Increase window height"
 keymap.set("n", "<M-j>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
 
 -- Terminal
-keymap.set("n", "<leader>t", "<cmd>vsplit | terminal<CR>", { desc = "Split vertically and open terminal" }) -- split vertically and open terminal
 keymap.set("t", "jk", [[<C-\><C-n>]], { desc = "Exit terminal mode with jk" })
 
 -- Other

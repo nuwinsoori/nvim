@@ -4,7 +4,7 @@ return {
   opts = {
     -- your toggleterm setup options here
     size = 20,
-    open_mapping = [[<c-\>]],
+    open_mapping = [[<c-p>]],
     direction = "horizontal",
   },
 }
