@@ -160,6 +160,18 @@ return {
       },
     })
 
+    -- Clangd
+    lspconfig.clangd.setup({
+      capabilities = capabilities,
+      filetypes = {
+        "cpp",
+        "tpp",
+        "h",
+        "hpp",
+        "c++",
+      },
+    })
+
     -- Emmet ----------------------------------------------------------------
     lspconfig.emmet_ls.setup({
       capabilities = capabilities,
