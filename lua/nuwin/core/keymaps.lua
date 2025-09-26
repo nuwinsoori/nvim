@@ -47,6 +47,7 @@ keymap.set("n", "si}", "f{si{", { desc = "Substitute in inner" })
 keymap.set("n", "ci)", "f(ci(", { desc = "Change in inner" })
 keymap.set("n", "di)", "f(di(", { desc = "Delete in inner" })
 keymap.set("n", "si)", "f(si(", { desc = "Substitute in inner" })
+keymap.set("n", 'ci"', 'f"ci"', {desc = "Change in quotes"})
 
 -- MacOS
 keymap.set("i", "<A-BS>", "<C-w>", { desc = "Delete last word in insert mode with Option+Delete" })
